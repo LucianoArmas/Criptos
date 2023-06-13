@@ -1,9 +1,10 @@
 import{calcuEL} from './criptoCalcEL.js';
 import{calELPeso} from './pesoCalcEL.js';
-import {obtenerDatosUsd} from './dolarApi.js';
 
 const tabla = document.getElementById('tablaCriptomonedas');
 const cuerpoTabla = tabla.getElementsByClassName('tableBodyCripto')[0];
+const colUsdOf = document.getElementById("usdOfic");
+const colUsdBlue = document.getElementById("usdBlue");
 const myData = [
     {owner: "Cele", cant: 0.00031968, price: 40499, cripto: "bitcoin"}, 
     {owner: "Cele", cant: 0.00081, price: 19999, cripto: "bitcoin"},
@@ -15,6 +16,9 @@ const myData = [
 export function mostrarDatosEnTabla(datosCripto, datosDolar) {
     // Limpia el cuerpo de la tabla antes de agregar los nuevos datos
     cuerpoTabla.innerHTML = '';
+
+    colUsdOf.textContent = "Earning/Lost (ARS)(USD Oficial) ($"+datosDolar[0].price+")";
+    colUsdBlue.textContent = "Earning/Lost (ARS)(USD Blue) ($"+datosDolar[1].price+")";
   
     // Itera sobre los datos y agrega filas a la tabla
     datosCripto.forEach(criptomoneda => {
@@ -76,6 +80,7 @@ export function mostrarDatosEnTabla(datosCripto, datosDolar) {
           fila.appendChild(celdaELPrice);
           fila.appendChild(celdaELArsUSDOf);
           fila.appendChild(celdaELArsUSDBlue);
+          
   
           cuerpoTabla.appendChild(fila);
         }
@@ -83,6 +88,10 @@ export function mostrarDatosEnTabla(datosCripto, datosDolar) {
       });
       
     });
+    fila.appendChild(colUsdOf);
+    cuerpoTabla.appendChild(fila);
+    fila.appendChild(colUsdBlue);
+    cuerpoTabla.appendChild(fila);
   };
 
 
