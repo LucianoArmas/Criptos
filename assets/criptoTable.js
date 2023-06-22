@@ -6,10 +6,10 @@ const cuerpoTabla = tabla.getElementsByClassName('tableBodyCripto')[0];
 const colUsdOf = document.getElementById("usdOfic");
 const colUsdBlue = document.getElementById("usdBlue");
 const myData = [
-    {owner: "Cele", cant: 0.00031968, price: 40499, cripto: "bitcoin"}, 
-    {owner: "Cele", cant: 0.00081, price: 19999, cripto: "bitcoin"},
-    {owner: "Cele", cant: 0.7493625, price: 17.83, cripto: "polkadot"},
-    {owner: "Juli", cant: 0.0003497, price: 40300, cripto: "bitcoin"},
+    {owner: "Cele", cant: 0.00031968, price: 40499, cripto: "bitcoin", priceUSD: 189.25}, 
+    {owner: "Cele", cant: 0.00081, price: 19999, cripto: "bitcoin", priceUSD: 244.5},
+    {owner: "Cele", cant: 0.7493625, price: 17.83, cripto: "polkadot", priceUSD: 189.25},
+    {owner: "Juli", cant: 0.0003497, price: 40300, cripto: "bitcoin", priceUSD: 187.94},
   ];
 
 
@@ -51,10 +51,9 @@ export function mostrarDatosEnTabla(datosCripto, datosDolar) {
             celdaELPrice.setAttribute("class","earn el");
           }
 
-
           const celdaELArsUSDOf = document.createElement('td');
           celdaELArsUSDOf.textContent = calELPeso(celdaUsdBuy.textContent, celdaUsdCurrent.textContent,
-            dato.owner, dato.price, datosDolar[0]);
+            datosDolar[0], dato.priceUSD);
 
             if((celdaELArsUSDOf.textContent) < 0){
               celdaELArsUSDOf.setAttribute("class","lost el");
@@ -65,7 +64,7 @@ export function mostrarDatosEnTabla(datosCripto, datosDolar) {
 
           const celdaELArsUSDBlue = document.createElement('td');
           celdaELArsUSDBlue.textContent = calELPeso(celdaUsdBuy.textContent, celdaUsdCurrent.textContent,
-            dato.owner, dato.price, datosDolar[1]);
+            datosDolar[1], dato.priceUSD);
 
             if((celdaELArsUSDBlue.textContent) < 0){
               celdaELArsUSDBlue.setAttribute("class","lost el");
