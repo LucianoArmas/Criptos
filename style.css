@@ -55,10 +55,13 @@ div{
 
 /****** 3.FILTER: ******/
 
-.filterCripto, .filterCripto option{
+.filterCripto, .filterCripto option, #filterName, #filterName option{
   background: white;
 }
 
+#labelOwner{
+  padding-left: 35px;
+}
 
 
 

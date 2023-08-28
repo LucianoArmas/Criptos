@@ -11,11 +11,19 @@
 
   <h2 class="title">Earning/Lost Calculator</h2>
   <div class="filter-container">
-    <select id="filtroSelect" class="filterCripto">
-      <option value="todos">Todos</option>
+    <label for="filterCripto">Crypto:
+    <select id="filtroSelect" class="filterCripto" name="filterCripto">
+      <option value="todos">All</option>
       <option value="bitcoin">Bitcoin</option>
       <option value="polkadot">Dot</option>
-    </select>
+    </select></label>
+
+    <label for="filterName" id="labelOwner">Owner:
+    <select id="filterName" name="filterName">
+      <option value="todos">All</option>
+      <option value="Cele">Cele</option>
+      <option value="Juli">Juli</option>
+    </select></label>
 
   </div>
 
